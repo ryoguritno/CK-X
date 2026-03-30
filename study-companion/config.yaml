@@ -1,0 +1,12 @@
+ollama:
+  host: http://host.docker.internal:11434
+  model: llama3.1:8b
+  timeout_seconds: 60
+
+notifications:
+  morning_time: "07:00"
+  evening_time: "19:00"
+  timezone: "Asia/Jakarta"
+
+roadmap:
+  plan_file: /app/docs/superpowers/plans/2026-03-29-devops-certification-roadmap.md

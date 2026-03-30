@@ -233,6 +233,29 @@ services:
       timeout: 5s
       retries: 3
 
+  # Study Companion Bot
+  study-companion:
+    build:
+      context: ./study-companion
+    volumes:
+      - ./study-companion/data:/app/data
+      - ./docs:/app/docs:ro
+    env_file:
+      - ./study-companion/.env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 256M
+        reservations:
+          cpus: "0.1"
+          memory: 128M
+    networks:
+      - ckx-network
+
 networks:
   ckx-network:
     name: ckx-network
